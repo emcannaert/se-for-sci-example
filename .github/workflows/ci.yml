@@ -16,6 +16,9 @@ jobs:
     steps:
       - name: My first step
         run: echo "Hello world"
+      - name: Step with output
+        id: step2
+        run: echo "my_var=some-value" >> $GITHUB_OUTPUT
 
   test:
     name: Run tests
@@ -41,3 +44,13 @@ jobs:
       - name: Run Pytest
         run: python -m pytest -v
 
+
+
+## some jobs pass information to each other
+
+new-job:
+  needs: [hello]
+  runs-on: ubuntu-latest
+  steps:
+    - name: Print output from first job
+      run: echo "#{{ needs.hello.outputs.my_var }}"
