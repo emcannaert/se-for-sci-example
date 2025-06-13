@@ -8,6 +8,8 @@ on:
 
 jobs:
   hello:
+    runs-on:
+    name: My first job
     runs-on: ubuntu-latest
     steps:
       -name: My first step
