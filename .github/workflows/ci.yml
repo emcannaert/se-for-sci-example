@@ -12,8 +12,8 @@ jobs:
     name: My first job
     runs-on: ubuntu-latest
     steps:
-      -name: My first step
+      - name: My first step
         run: echo "Hello world"
-      -name: My second step
+      - name: My second step
         run: mkdir -z test
 
